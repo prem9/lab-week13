@@ -60,35 +60,24 @@ class Node {
   // student needs to write code to
   // do a binary search of the BST tree
   public Node search(int x) {
-    
-    if (this.value == x)
-    {
+
+    if (this.value == x) {
       System.out.printf("The value %d is in the tree\n", x);
+    } else if (x < this.value) {
+      if (this.left != null) {
+
+        this.left.search(x);
+      } else {
+        System.out.printf("The value %d is not in the tree\n", x);
+      }
+
+    } else if (x > this.value) {
+      if (this.right != null) {
+        this.right.search(x);
+      } else
+        System.out.printf("The value %d is not in the tree\n", x);
     }
-    else if (x < this.value)
-    {
-       if (this.left != null)
-       {
-         
-          this.left.search(x);
-       }
-       else
-       {
-          System.out.printf("The value %d is not in the tree\n", x);
-       }
-       
-    }
-    else if (x > this.value)
-    {
-       if (this.right != null)
-       {
-          this.right.search(x);
-       }
-       else
-       System.out.printf("The value %d is not in the tree\n", x);
-    }
-    
-    
+
     return null;
   }
 }
